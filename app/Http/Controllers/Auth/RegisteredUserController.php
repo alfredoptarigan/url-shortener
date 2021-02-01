@@ -45,7 +45,7 @@ class RegisteredUserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'avatar' => $request->avatar !== null ? $this->UploadImage($request->avatar) : ""
+            'avatar' => $request->avatar !== null ? $this->UploadImage($request->avatar) : null
         ]));
 
         event(new Registered($user));
