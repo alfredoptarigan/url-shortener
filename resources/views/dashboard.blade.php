@@ -1,17 +1,35 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
+@extends('layouts.app')
+@section('content')
+<div class="container mx-auto">
+    <div class="grid lg:grid-cols-3 md:grid-cols-2 md:grid-row-6 gap-4 mt-5">
+        <x-card type="green">
+            @slot('header')
+            Total Link Active
+            @endslot
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
-                    You're logged in!
-                </div>
-            </div>
-        </div>
+            @slot('subtitle')
+            Link Active
+            @endslot
+        </x-card>
+        <x-card type="red">
+            @slot('header')
+            Total Link Outdated
+            @endslot
+
+            @slot('subtitle')
+            Link Oudated
+            @endslot
+        </x-card>
+        <x-card type="red">
+            @slot('header')
+            Total Link Outdated
+            @endslot
+
+            @slot('subtitle')
+            Link Oudated
+            @endslot
+        </x-card>
+
     </div>
-</x-app-layout>
+</div>
+@endsection
