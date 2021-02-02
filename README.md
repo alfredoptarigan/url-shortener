@@ -11,11 +11,11 @@
 </p>
 
 <!-- ABOUT THE PROJECT -->
-## About E-Learning
+## About URL Shortener
 
 URL Shortener ini merupakan salah satu project pembelajaran Backend Development menggunakan framework Laravel 8. Project ini membantu saya dalam membagikan dan mempersingkat link yang ingin dibagikan.
 
-### E-Learning Production
+### URL Shortener Production
 * Coming Soon
 ### Built With
 
