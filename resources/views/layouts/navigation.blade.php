@@ -54,7 +54,7 @@
                             <p class="text-sm text-green-500">
                                 Premium Package
                             </p>
-                            <small class="text-red-500">{{ remainingPackage(auth()->user()->remaining_package) }} Days
+                            <small class="text-red-500">{{ remainingPackage(auth()->user()->remaining_package) }}
                                 Remaining
                             </small>
 
