@@ -23,6 +23,7 @@ Route::middleware(['auth'])->group(function () {
         return view('dashboard');
     })->name('dashboard');
 
+    Route::get('/menu', [UrlController::class, 'index'])->name('public.url.menu');
     Route::get('/create-url', [UrlController::class, 'create'])->name('public.url.create');
     Route::post('/post-url', [UrlController::class, 'store'])->name('public.url.post');
     Route::get('/redirect/{url}', [UrlController::class, 'findUrl'])->name('public.url.find');

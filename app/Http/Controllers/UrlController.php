@@ -9,6 +9,10 @@ use Illuminate\Support\Str;
 
 class UrlController extends Controller
 {
+    public function index()
+    {
+        return view('pages.public.url.menu');
+    }
     public function create()
     {
         return view('pages.public.url.create');
