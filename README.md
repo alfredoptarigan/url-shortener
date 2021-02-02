@@ -24,7 +24,8 @@ URL Shortener ini merupakan salah satu project pembelajaran Backend Development 
 
 <!-- Project Image -->
 ## Project Image
-<img src="https://alfredo.id/alfredo/url-shortener.png" alt="Project Image">
+<img src="https://alfredo.id/media/url-shortener-create.png" alt="Project Image">
+<img src="https://alfredo.id/media/url-shortener-list.png" alt="Project Image">
 
 <!-- LICENSE -->
 ## License
