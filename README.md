@@ -23,11 +23,11 @@ URL Shortener ini merupakan salah satu project pembelajaran Backend Development 
 * [Bootstrap](https://tailwindcss.com/)
 
 <!-- Project Image -->
-## License
+## Project Image
 <img src="https://alfredo.id/alfredo/url-shortener.png" alt="Project Image">
+
 <!-- LICENSE -->
 ## License
-
 Distributed under the MIT License. See `LICENSE` for more information.
 
 <!-- CONTACT -->
