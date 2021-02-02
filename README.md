@@ -35,7 +35,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 Alfredo P Tarigan - [@twitter_handle](https://twitter.com/alfredoptarigan) - alfredopatriciustarigan@outlook.com
 
-Project Link: [https://github.com/alfredoptarigan/E-Learning/](https://github.com/alfredoptarigan/E-Learning/)
+Project Link: [https://github.com/alfredoptarigan/url-shortener/](https://github.com/alfredoptarigan/url-shortener/)
 
 
 
