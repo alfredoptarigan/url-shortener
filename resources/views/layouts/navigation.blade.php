@@ -45,6 +45,22 @@
                     </x-slot>
 
                     <x-slot name="content">
+                        @if (auth()->user()->package === 'free')
+                        <p class="px-4 py-2 text-sm text-blue-500">
+                            Free Package
+                        </p>
+                        @elseif(auth()->user()->package === 'premium')
+                        <div class="px-4 py-2">
+                            <p class="text-sm text-green-500">
+                                Premium Package
+                            </p>
+                            <small class="text-red-500">{{ remainingPackage(auth()->user()->remaining_package) }} Days
+                                Remaining
+                            </small>
+
+                        </div>
+                        @endif
+
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
