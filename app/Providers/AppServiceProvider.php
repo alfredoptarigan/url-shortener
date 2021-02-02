@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use App\View\Components\Card;
+use App\View\Components\CardButton;
 use Illuminate\Support\Facades\Blade;
 
 class AppServiceProvider extends ServiceProvider
@@ -26,5 +27,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Blade::component('components.card', Card::class);
+        Blade::component('components.card-button', CardButton::class);
     }
 }
