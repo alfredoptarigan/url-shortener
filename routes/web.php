@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/r/{url}', [UrlController::class, 'findUrl'])->name('public.url.find');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', function () {
@@ -30,7 +31,6 @@ Route::middleware(['auth'])->group(function () {
     // URL Route
     Route::get('/create-url', [UrlController::class, 'create'])->name('public.url.create');
     Route::post('/post-url', [UrlController::class, 'store'])->name('public.url.post');
-    Route::get('/r/{url}', [UrlController::class, 'findUrl'])->name('public.url.find');
 });
 
 require __DIR__ . '/auth.php';
