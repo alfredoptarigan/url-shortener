@@ -96,7 +96,11 @@
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('public.url.menu')" :active="request()->routeIs('public.url.menu')">
+                {{ __('Menu') }}
+            </x-responsive-nav-link>
         </div>
+
 
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200">
@@ -109,6 +113,16 @@
                 <div class="ml-3">
                     <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
                     <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
+                    @if (auth()->user()->package === 'free')
+                    <div class="font-medium text-sm text-blue-500">{{ Auth::user()->email }}
+                    </div>
+
+                    @elseif(auth()->user()->package === 'premium')
+                    <div class="font-medium text-sm text-green-500">Premium Package
+                        {{ remainingPackage(auth()->user()->remaining_package) }}
+                    </div>
+                    @endif
+
                 </div>
             </div>
 
