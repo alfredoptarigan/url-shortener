@@ -17,6 +17,7 @@ class CreateGift extends Migration
             $table->id();
             $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('title');
+            $table->string('unique_key');
             $table->string('description');
             $table->enum('package', [1, 5, 7, 31, 'lifetime']);
             $table->timestamp('expire_at');
