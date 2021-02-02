@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use App\Models\Url;
+use App\Models\ClaimGift;
 
 class User extends Authenticatable
 {
@@ -49,5 +50,15 @@ class User extends Authenticatable
     public function url()
     {
         return $this->hasMany(Url::class);
+    }
+
+    public function gift()
+    {
+        return $this->hasMany(Gift::class);
+    }
+
+    public function claimgift()
+    {
+        return $this->hasMany(ClaimGift::class);
     }
 }

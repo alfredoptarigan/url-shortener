@@ -2,6 +2,7 @@
 
 use Carbon\Carbon;
 use App\Models\Url;
+use App\Models\ClaimGift;
 
 function remainingPackage($remainingTime)
 {
@@ -47,4 +48,20 @@ function totalDeactiveLink()
 function totalLifetimeLink()
 {
     return count(auth()->user()->url->where('status', '=', 'lifetime'));
+}
+
+
+function checkHistoryGift($id)
+{
+    $history = ClaimGift::where([
+        ['gift_id', '=', $id],
+        ['user_id', '=', auth()->user()->id]
+    ])->first();
+
+
+    if ($history) {
+        return true;
+    } else {
+        return false;
+    }
 }

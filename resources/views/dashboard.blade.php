@@ -12,7 +12,7 @@
                     untuk Free User saja !
                 </p>
                 <div class="mt-3">
-                    <a href="#"
+                    <a href="{{ route('public.gift.index') }}"
                         class="bg-blue-500 px-4 py-2 text-white font-merriweather hover:bg-blue-600 rounded shadow-sm hover:shadow-xl transition duration-300 hover:ease-in-out">
                         Claim Gift
                     </a>

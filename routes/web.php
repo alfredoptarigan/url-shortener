@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GiftController;
 use App\Http\Controllers\UrlController;
 use Illuminate\Support\Facades\Route;
 
@@ -31,6 +32,10 @@ Route::middleware(['auth'])->group(function () {
     // URL Route
     Route::get('/create-url', [UrlController::class, 'create'])->name('public.url.create');
     Route::post('/post-url', [UrlController::class, 'store'])->name('public.url.post');
+
+    // Gift Route
+    Route::get('/gifts', [GiftController::class, 'index'])->name('public.gift.index');
+    Route::get('/claim-gift/{unqiuekey}', [GiftController::class, 'claim'])->name('public.gift.claim');
 });
 
 require __DIR__ . '/auth.php';
