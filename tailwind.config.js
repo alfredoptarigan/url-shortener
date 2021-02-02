@@ -178,6 +178,7 @@ module.exports = {
         },
         fontFamily: {
             sans: [
+                "Merriweather",
                 "Inter",
                 "Nunito",
                 "ui-sans-serif",
