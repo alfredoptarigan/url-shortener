@@ -33,3 +33,18 @@ function changeToInactive($id)
     $url->status = 'deactive';
     return $url->save();
 }
+
+function totalActiveLink()
+{
+    return count(auth()->user()->url->where('status', '=', 'active'));
+}
+
+function totalDeactiveLink()
+{
+    return count(auth()->user()->url->where('status', '=', 'deactive'));
+}
+
+function totalLifetimeLink()
+{
+    return count(auth()->user()->url->where('status', '=', 'lifetime'));
+}

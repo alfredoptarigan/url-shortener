@@ -10,25 +10,38 @@
             @slot('subtitle')
             Link Active
             @endslot
+
+            @slot('number')
+            {{ totalActiveLink() }}
+            @endslot
+        </x-card>
+        <x-card type="blue">
+            @slot('header')
+            Total Link Lifetime
+            @endslot
+
+            @slot('subtitle')
+            Link Lifetime
+            @endslot
+
+            @slot('number')
+            {{ totalLifetimeLink() }}
+            @endslot
         </x-card>
         <x-card type="red">
             @slot('header')
-            Total Link Outdated
+            Total Link Deactive
             @endslot
 
             @slot('subtitle')
             Link Oudated
             @endslot
-        </x-card>
-        <x-card type="red">
-            @slot('header')
-            Total Link Outdated
-            @endslot
 
-            @slot('subtitle')
-            Link Oudated
+            @slot('number')
+            {{ totalDeactiveLink() }}
             @endslot
         </x-card>
+
 
     </div>
 </div>
