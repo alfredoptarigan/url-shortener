@@ -19,7 +19,7 @@ class Url extends Model
     ];
 
     protected $table = 'url';
-    protected $fillable = ['user_id', 'url_raw', 'url_convert', 'expire_at'];
+    protected $fillable = ['user_id', 'title', 'url_raw', 'url_convert', 'expire_at'];
 
     public function user()
     {

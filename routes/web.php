@@ -23,10 +23,14 @@ Route::middleware(['auth'])->group(function () {
         return view('dashboard');
     })->name('dashboard');
 
+    // Menu Route
     Route::get('/menu', [UrlController::class, 'index'])->name('public.url.menu');
+    Route::get('/my-url', [UrlController::class, 'myURL'])->name('public.url.myurl');
+
+    // URL Route
     Route::get('/create-url', [UrlController::class, 'create'])->name('public.url.create');
     Route::post('/post-url', [UrlController::class, 'store'])->name('public.url.post');
-    Route::get('/redirect/{url}', [UrlController::class, 'findUrl'])->name('public.url.find');
+    Route::get('/r/{url}', [UrlController::class, 'findUrl'])->name('public.url.find');
 });
 
 require __DIR__ . '/auth.php';

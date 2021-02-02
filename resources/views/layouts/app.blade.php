@@ -16,6 +16,9 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+
+    <!--Regular Datatables CSS-->
+    @stack('custom-css')
 </head>
 
 <body class="font-sans antialiased">
@@ -26,6 +29,8 @@
             @yield('content')
         </main>
     </div>
+
+    @stack('custom-js')
 </body>
 
 </html>

@@ -9,7 +9,7 @@
             Create Shorten URL
             @endslot
         </x-card-button>
-        <x-card-button bgCardColor="blue" btnColor="pink" :url="route('public.url.menu')">
+        <x-card-button bgCardColor="blue" btnColor="pink" :url="route('public.url.myurl')">
             @slot('header')
             My URL Shorten
             @endslot

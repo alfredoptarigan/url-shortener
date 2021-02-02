@@ -10,9 +10,9 @@
         @if (Session::has('success'))
         <h5 class="text-sm font-medium">Hasil URL : </h5>
         <div class="bg-green-300 p-5 rounded w-full mt-3 mb-3 text-gray-700">
-            <a href="http://url-shortener.test/redirect/{{ Session::get('success') }}" target="_blank"
+            <a href="http://url-shortener.test/r/{{ Session::get('success') }}" target="_blank"
                 class="hover:text-gray-900">
-                http://url-shortener.test/redirect/{{ Session::get('success') }}
+                http://url-shortener.test/r/{{ Session::get('success') }}
             </a>
         </div>
         @endif
@@ -20,6 +20,12 @@
             @csrf
             <!-- RAW URL -->
             <div>
+                <x-label for="title" :value="__('Title')" />
+
+                <x-input id="title" class="block mt-1 w-full" type="text" name="title" :value="old('title')" required
+                    autofocus />
+            </div>
+            <div class="mt-2">
                 <x-label for="url_raw" :value="__('URL Raw')" />
 
                 <x-input id="url_raw" class="block mt-1 w-full" type="text" name="url_raw" :value="old('url_raw')"

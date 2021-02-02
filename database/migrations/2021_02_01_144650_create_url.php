@@ -15,7 +15,8 @@ class CreateUrl extends Migration
     {
         Schema::create('url', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');;
+            $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->string('title');
             $table->string('url_raw');
             $table->string('url_convert');
             $table->timestamp('expire_at');
