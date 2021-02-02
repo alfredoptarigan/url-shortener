@@ -22,16 +22,19 @@ class UrlController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'title' => 'required|string',
             'url_raw' => 'required|url'
         ]);
 
         $rand_url = Str::random(6);
+
         $url = Url::create([
             'title' => $request->title,
             'user_id' => auth()->user()->id,
             'url_raw' => $request->url_raw,
             'url_convert' => $rand_url,
-            'expire_at' => null
+            'expire_at' => $request->expire_at !== "lifetime" ? addDays($request->expire_at) : null,
+            'status' => $request->expire_at === 'lifetime' ? "lifetime" : "active"
         ]);
 
 
@@ -42,6 +45,13 @@ class UrlController extends Controller
     {
         $url = Url::where('url_convert', '=', $url)->first();
 
+        if (timeNowSQL() >= $url->expire_at && $url->status === 'active') {
+            changeToInactive($url->id);
+            return "Sudah di inactive, makasih!";
+        }
+        if ($url->status === 'deactive') {
+            return "Link sudah expire, silahkan diperpanjang di website";
+        }
         return redirect($url->url_raw);
     }
 

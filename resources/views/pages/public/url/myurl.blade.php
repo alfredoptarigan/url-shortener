@@ -25,18 +25,28 @@
                     <td>{{ $ul->url_convert }}</td>
                     <td>
                         <div class="flex">
-                            @if ($ul->expire_at === null)
+                            @if ($ul->expire_at === null && $ul->status === 'lifetime')
                             <span class="mr-2 bg-green-500 text-white p-2 rounded  leading-none flex items-center">
                                 Lifetime
                             </span>
-                            @elseif($ul->expire_at !== null )
-                            <span class="mr-2 bg-blue-500 text-white p-2 rounded  leading-none flex items-center">
-                                Active &nbsp; <span class="font-medium"> {{ remainingPackage($ul->expire_at) }} Days
-                                </span>
-                            </span>
+                            @elseif($ul->expire_at !== null)
 
+                            @if(timeNowSQL() >= $ul->expire_at )
+                            @php
+                            changeToInactive($ul->id);
+                            @endphp
+                            <span class="mr-2 bg-red-500 text-white p-2 rounded  leading-none flex items-center">
+                                Inactive
+                            </span>
                             @endif
 
+                            @if ($ul->status === 'active' && timeNowSQL() <= $ul->expire_at)
+                                <span class="mr-2 bg-blue-500 text-white p-2 rounded  leading-none flex items-center">
+                                    Active &nbsp; <span class="font-medium"> {{ remainingPackage($ul->expire_at) }}
+                                    </span>
+                                </span>
+                                @endif
+                                @endif
                         </div>
                     </td>
                     <td>

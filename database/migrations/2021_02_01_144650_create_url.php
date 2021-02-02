@@ -19,7 +19,8 @@ class CreateUrl extends Migration
             $table->string('title');
             $table->string('url_raw');
             $table->string('url_convert');
-            $table->timestamp('expire_at');
+            $table->enum('status', ['active', 'deactive', 'lifetime'])->default('active');
+            $table->timestamp('expire_at')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
