@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Gift;
 use Carbon\Carbon;
 use App\Models\ClaimGift;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class GiftController extends Controller
 {
@@ -45,7 +46,8 @@ class GiftController extends Controller
                 'gift_id' => $gift->id,
                 'claim_at' => Carbon::now()->toDateTimeString()
             ]);
-            return "Paket premium berhasil ditambahkan";
+            Alert::success('Premium Package', 'Paket Premium Berhasil Ditambahkan!');
+            return redirect()->back();
         } elseif ($user->remaining_package !== null) {
             $remainingPremiumPackage = $user->remaining_package;
             $premiumRenew = Carbon::parse($remainingPremiumPackage)->addDay($gift->package)->toDateTimeString();
@@ -59,8 +61,8 @@ class GiftController extends Controller
                 'gift_id' => $gift->id,
                 'claim_at' => Carbon::now()->toDateTimeString()
             ]);
-
-            return "Paket premium berhasil ditambahkan";
+            Alert::success('Premium Package', 'Paket Premium Berhasil Ditambahkan!');
+            return redirect()->back();
         }
     }
 }

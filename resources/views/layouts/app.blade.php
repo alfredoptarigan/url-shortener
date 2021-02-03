@@ -24,6 +24,7 @@
 </head>
 
 <body class="font-sans antialiased">
+    @include('sweetalert::alert')
     <div class="min-h-screen bg-gray-100">
         @include('layouts.navigation')
         <!-- Page Content -->
@@ -31,7 +32,7 @@
             @yield('content')
         </main>
     </div>
-
+    @include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
     @stack('custom-js')
 </body>
 

@@ -3,7 +3,6 @@
 use App\Http\Controllers\GiftController;
 use App\Http\Controllers\UrlController;
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,6 +18,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/r/{url}', [UrlController::class, 'findUrl'])->name('public.url.find');
+
+
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', function () {
