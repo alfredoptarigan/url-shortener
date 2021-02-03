@@ -19,8 +19,18 @@ class GiftController extends Controller
 
     public function claim($uniqueKey)
     {
+
+
         $gift = Gift::where('unique_key', '=', $uniqueKey)->first();
         $user = auth()->user();
+
+        $history = $user->claimgift->where('gift_id', '=', $gift->id)->first();
+
+        if ($history) {
+            return "Anda sudah pernah mengambil hadiah ini sebelumnya !";
+        }
+
+
         if ($user->remaining_package === null) {
             // Tambah Paket Premium User
             $premiumPackage = Carbon::now()->addDay($gift->package)->toDateTimeString();
@@ -49,6 +59,8 @@ class GiftController extends Controller
                 'gift_id' => $gift->id,
                 'claim_at' => Carbon::now()->toDateTimeString()
             ]);
+
+            return "Paket premium berhasil ditambahkan";
         }
     }
 }
