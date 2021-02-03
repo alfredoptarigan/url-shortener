@@ -36,6 +36,19 @@ class GiftController extends Controller
                 'claim_at' => Carbon::now()->toDateTimeString()
             ]);
             return "Paket premium berhasil ditambahkan";
+        } elseif ($user->remaining_package !== null) {
+            $remainingPremiumPackage = $user->remaining_package;
+            $premiumRenew = Carbon::parse($remainingPremiumPackage)->addDay($gift->package)->toDateTimeString();
+            $user->remaining_package = $premiumRenew;
+            $user->package = 'premium';
+            $user->save();
+            // Tambah History Claim Gift
+            ClaimGift::create([
+                'gift_name' => $gift->title,
+                'user_id' => $user->id,
+                'gift_id' => $gift->id,
+                'claim_at' => Carbon::now()->toDateTimeString()
+            ]);
         }
     }
 }

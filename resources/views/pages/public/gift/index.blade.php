@@ -11,8 +11,10 @@
             mendapatkan paket premium selama seminggu
         </p>
         <div class="grid lg:grid-cols-3 md:grid-cols-2 md:grid-row-6 gap-4 mt-5">
-            @foreach ($gifts as $gift)
-            @if (checkHistoryGift($gift->id) === false)
+
+
+            @foreach ($gifts->where('type','!=',checkTypeGift(auth()->user()->package)) as $gift)
+            @if (checkHistoryGift($gift->id) === false )
             <div
                 class="bg-white p-5 rounded shadow-md hover:shadow-xl mt-3 transition duration-200 hover:ease-in-out cursor-pointer">
                 <p class="font-medium font-merriweather text-xl">{{ $gift->title }}</p>

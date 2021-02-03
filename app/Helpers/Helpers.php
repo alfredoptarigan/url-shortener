@@ -65,3 +65,12 @@ function checkHistoryGift($id)
         return false;
     }
 }
+
+function checkTypeGift($userPackage)
+{
+    if ($userPackage === 'free') {
+        return "premium";
+    } else {
+        return "free";
+    }
+}

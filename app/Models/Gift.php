@@ -19,7 +19,7 @@ class Gift extends Model
         'updated_at' => 'datetime:Y-m-d H:m:s',
         'expire_at' => 'datetime:Y-m-d H:m:s',
     ];
-    protected $fillable = ['user_id', 'title', 'unique_key', 'description', 'expire_at'];
+    protected $fillable = ['user_id', 'title', 'unique_key', 'description', 'expire_at', 'type'];
 
     public function user()
     {
