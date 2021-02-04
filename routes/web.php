@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\AdministratorController;
 use App\Http\Controllers\GiftController;
 use App\Http\Controllers\UrlController;
+use App\Http\Middleware\isAdmin;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +39,11 @@ Route::middleware(['auth'])->group(function () {
     // Gift Route
     Route::get('/gifts', [GiftController::class, 'index'])->name('public.gift.index');
     Route::get('/claim-gift/{unqiuekey}', [GiftController::class, 'claim'])->name('public.gift.claim');
+});
+
+Route::middleware(['auth', isAdmin::class])->group(function () {
+    Route::get('/admin/gifts/', [AdministratorController::class, 'createGiftVoucher'])->name('admin.gifts');
+    Route::post('/admin/gifts/', [AdministratorController::class, 'storeGiftVoucher'])->name('admin.gifts.store');
 });
 
 require __DIR__ . '/auth.php';
