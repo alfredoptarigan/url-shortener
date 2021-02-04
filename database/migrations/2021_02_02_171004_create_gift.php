@@ -20,6 +20,7 @@ class CreateGift extends Migration
             $table->string('unique_key');
             $table->string('description');
             $table->enum('package', [1, 5, 7, 31, 'lifetime']);
+            $table->enum('type', ['free', 'premium', 'all']);
             $table->timestamp('expire_at');
             $table->softDeletes();
             $table->timestamps();

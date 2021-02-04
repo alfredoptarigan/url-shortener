@@ -28,7 +28,8 @@ class GiftController extends Controller
         $history = $user->claimgift->where('gift_id', '=', $gift->id)->first();
 
         if ($history) {
-            return "Anda sudah pernah mengambil hadiah ini sebelumnya !";
+            Alert::error('Upss Something Wrong', 'Kode premium sudah digunakan !');
+            return redirect()->back();
         }
 
 
