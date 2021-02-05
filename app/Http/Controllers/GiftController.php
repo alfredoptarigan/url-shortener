@@ -27,6 +27,11 @@ class GiftController extends Controller
 
         $history = $user->claimgift->where('gift_id', '=', $gift->id)->first();
 
+
+        if (timeNowSQL() > $gift->expire_at) {
+            return abort(404);
+        }
+
         if ($history) {
             Alert::error('Upss Something Wrong', 'Kode premium sudah digunakan !');
             return redirect()->back();
