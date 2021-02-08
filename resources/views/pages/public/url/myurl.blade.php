@@ -51,14 +51,15 @@
                     </td>
                     <td>
                         <div class="flex items-center justify-start">
-                            <form action="/myurl/destroy/{{ $ul->id }}" method="POST">
+                            <form action="{{ route('public.url.destroy',$ul->id) }}" method="POST">
                                 @csrf
                                 <button type="submit"
                                     class="mr-2 bg-red-600 text-white p-2 rounded  leading-none flex items-center">
                                     Delete
                                 </button>
                             </form>
-                            <a class="mr-2 bg-yellow-500 text-white p-2 rounded  leading-none flex items-center">
+                            <a href="{{ route('public.url.edit',$ul->id) }}"
+                                class="mr-2 bg-yellow-500 text-white p-2 rounded  leading-none flex items-center">
                                 Edit
                             </a>
                         </div>

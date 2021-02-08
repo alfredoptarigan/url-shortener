@@ -65,10 +65,28 @@ class UrlController extends Controller
 
     public function editURL($id)
     {
+        $myURL = Url::findOrFail($id);
+        return view('pages.public.url.edit', ['myUrl' => $myURL]);
     }
 
     public function updateURL($id, Request $request)
     {
+        $request->validate([
+            'title' => 'required|string',
+            'url_raw' => 'required|url'
+        ]);
+        $myURL = Url::findOrFail($id);
+
+        $myURL->update([
+            'title' => $request->title,
+            'url_raw' => $request->url_raw,
+            'expire_at' => $request->expire_at !== "lifetime" ? addDays($request->expire_at) : null,
+            'status' => $request->expire_at === 'lifetime' ? "lifetime" : "active"
+
+        ]);
+
+        Alert::success('My URL', 'URL berhasil di update !');
+        return redirect('/my-url');
     }
 
     public function destroyURL($id)
