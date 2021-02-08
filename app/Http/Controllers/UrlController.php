@@ -7,6 +7,7 @@ use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class UrlController extends Controller
 {
@@ -60,5 +61,21 @@ class UrlController extends Controller
         $id = auth()->user()->id;
         $user = User::findOrFail($id);
         return view('pages.public.url.myurl', ['user' => $user]);
+    }
+
+    public function editURL($id)
+    {
+    }
+
+    public function updateURL($id, Request $request)
+    {
+    }
+
+    public function destroyURL($id)
+    {
+        $myURL = Url::findOrFail($id);
+        $myURL->delete();
+        Alert::success('My URL', 'URL berhasil di hapus !');
+        return redirect()->back();
     }
 }

@@ -35,7 +35,9 @@ Route::middleware(['auth'])->group(function () {
     // URL Route
     Route::get('/create-url', [UrlController::class, 'create'])->name('public.url.create');
     Route::post('/post-url', [UrlController::class, 'store'])->name('public.url.post');
-
+    Route::get('/myurl/edit/{id}', [UrlController::class, 'editURL'])->name('public.url.edit');
+    Route::post('/myurl/update/{id}', [UrlController::class, 'updateURL'])->name('public.url.update');
+    Route::post('/myurl/destroy/{id}', [UrlController::class, 'destroyURL'])->name('public.url.destroy');
     // Gift Route
     Route::get('/gifts', [GiftController::class, 'index'])->name('public.gift.index');
     Route::get('/claim-gift/{unqiuekey}', [GiftController::class, 'claim'])->name('public.gift.claim');
