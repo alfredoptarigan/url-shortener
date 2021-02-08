@@ -14,7 +14,7 @@ trait ImageUpload
         $ext = strtolower($data->getClientOriginalExtension());
         $imageFullName = $image_name . '.' . $ext;
         $upload_path = 'images/';
-        $imageURL = $upload_path . $imageFullName;
+        $imageURL = "/" . $upload_path . $imageFullName;
         $success = $data->move($upload_path, $imageFullName);
 
         return $imageURL;
